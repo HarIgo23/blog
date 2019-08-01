@@ -1,0 +1,22 @@
+<header class="site-header">
+    <nav class="navbar navbar-dark navbar-expand-md bg-steel fixted-top">
+        <div class="container">
+            <a href="{% url 'blog-home' %}" class="navbar-brand mr-4">Django Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a href="{% url 'blog-home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'blog-about' %}" class="nav-item nav-link">About</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <a href="/" class="nav-item nav-link">Login</a>
+                    <a href="/" class="nav-item nav-link">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
