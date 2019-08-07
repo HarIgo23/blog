@@ -6,8 +6,8 @@ def home(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'dashboard/home.html', context)
+    return render(request, 'blog/dashboard/home.html', context)
 
 
 def about(request):
-    return render(request, 'dashboard/about.html', {'title': 'About'})
+    return render(request, 'blog/dashboard/about.html', {'title': 'About'})
