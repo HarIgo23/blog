@@ -13,8 +13,13 @@
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
-                    <a href="/" class="nav-item nav-link">Login</a>
-                    <a href="{% url 'register' %}" class="nav-item nav-link">Register</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}" class="nav-item nav-link">{{ user.username }}</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+                        <a href="{% url 'register' %}" class="nav-item nav-link">Register</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
