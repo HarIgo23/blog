@@ -1,13 +1,24 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
-def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/dashboard/home.html', context)
-
-
 def about(request):
-    return render(request, 'blog/dashboard/about.html', {'title': 'About'})
+    return render(request, 'blog/about.html', {'title': 'About'})
+
+
+class PostListView(ListView):
+    model = Post
+    # by default
+    # <app>/<model>_<viewtype>.html
+    # blog/Post_list.html
+    template_name = 'blog/home.html'
+    # by default
+    # name is 'object'
+    context_object_name = 'posts'
+    # без минуса ASC, с минусом DESC
+    ordering = ['-date_posted']
+
+
+class PostDetailView(DetailView):
+    model = Post

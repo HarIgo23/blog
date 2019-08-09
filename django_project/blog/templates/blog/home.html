@@ -5,11 +5,11 @@
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a href="#" class="mr-2">{{ post.author }}</a>
+                    <a href="" class="mr-2">{{ post.author }}</a>
                     <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
                 </div>
                 <h2>
-                    <a href="" class="article-title">{{ post.title }}</a>
+                    <a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a>
                 </h2>
                 <p class="article-content">{{ post.content }}</p>
             </div>
