@@ -10,8 +10,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    # override predefined model methods
+    # https://docs.djangoproject.com/en/2.2/topics/db/models/#overriding-model-methods
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
