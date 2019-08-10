@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-
+from django.contrib.auth import logout
 
 def register(request):
     if request.method == "POST":
@@ -37,3 +37,11 @@ def profile(request):
         'p_form': p_form
     }
     return render(request, "users/profile.html", context)
+
+
+# logout without template
+# https://docs.djangoproject.com/en/2.2/topics/auth/default/#how-to-log-a-user-out
+def logout_view(request):
+    logout(request)
+    messages.success(request, f"You exit from your account")
+    return redirect('blog-home')
